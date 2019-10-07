@@ -1,0 +1,54 @@
+{
+  "name": "postfy",
+  "version": "1.0.0",
+  "description": "An awesome post API",
+  "main": "index.js",
+  "repository": "https://github.com/matheuspiment/alumnet-developer.git",
+  "author": "Matheus Ribeiro Pimenta Nunes <matheuspiment@hotmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "commit": "git-cz",
+    "dev": "nodemon src/server.ts",
+    "build": ""
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/mongoose": "^5.5.19",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.8",
+    "nodemon": "^1.19.3",
+    "prettier": "^1.18.2",
+    "sucrase": "^3.10.1",
+    "typescript": "^3.6.3"
+  }
+}
