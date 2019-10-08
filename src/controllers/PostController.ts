@@ -22,6 +22,16 @@ class PostController {
       return res.status(400).json({ error: 'Creation failed' })
     }
   }
+
+  async list (req: AuthRequest, res: Response): Promise<Response> {
+    try {
+      const posts = await Post.find({ user: req.userId })
+
+      return res.json({ posts })
+    } catch (error) {
+      return res.status(400).json({ error: 'Listation failed' })
+    }
+  }
 }
 
 export default new PostController()

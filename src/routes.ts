@@ -19,5 +19,6 @@ routes.use(authMiddleware)
 
 // Post
 routes.post('/create/post', PostController.create)
+routes.get('/posts', PostController.list)
 
 export default routes
