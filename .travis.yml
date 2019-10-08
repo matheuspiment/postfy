@@ -1,0 +1,15 @@
+language: node_js
+cache:
+  directories:
+    - ~/.yarn
+notifications:
+  email: false
+node_js:
+  - "8"
+  - "12"
+script:
+  - yarn lint
+  - yarn test
+branches:
+  only:
+    - master
