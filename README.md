@@ -4,7 +4,6 @@ An awesome post API.
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-- [Setting up the editor](#setting-up-the-editor-vscode)
 - [Running the app](#running-the-app)
 
 ## Running the app
@@ -19,19 +18,21 @@ An awesome post API.
 
 #### With node
 
-1. Create a `.env` file with the content of the `.env.example`
+1. Create a `.env` file with the content of the `.env.example`.
 2. Run the command `yarn install` to install the dependencies.
-3. Run the command `yarn dev`.
-4. Make requests to `http://localhost:<port>`, where `<port>` is the port set in the `.env` file.
+3. A mongo database is required. You can run the `docker-compose up -d` command to setup a mongo database. Feel free to edit the `docker-compose.yml` file.
+4. Run the command `yarn dev`.
+5. Make requests to `http://localhost:<port>`, where `<port>` is the port set in the `.env` file.
 
 ### Production server
 
 #### With node
 
-1. Create a `.env` file with the content of the `.env.example`
+1. Create a `.env` file with the content of the `.env.example`.
 2. Run the command `yarn install` to install the dependencies.
 3. Run the command `yarn build`.
-4. Run the command `yarn start`.
-5. Make requests to `http://localhost:<port>`, where `<port>` is the port set in the `.env` file.
+4. A mongo database is required. You can run the `docker-compose up -d` command to setup a mongo database. Feel free to edit the `docker-compose.yml` file.
+5. Run the command `yarn start`.
+6. Make requests to `http://localhost:<port>`, where `<port>` is the port set in the `.env` file.
 
 Done! 😎
