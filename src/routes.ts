@@ -4,6 +4,7 @@ import authMiddleware from './middlewares/auth'
 
 import UserController from './controllers/UserController'
 import AuthController from './controllers/AuthController'
+import PostController from './controllers/PostController'
 
 const routes = Router()
 
@@ -17,8 +18,6 @@ routes.post('/register', UserController.register)
 routes.use(authMiddleware)
 
 // Post
-routes.post('/create/post', (req, res) => {
-  return res.json({ post: 'Oi' })
-})
+routes.post('/create/post', PostController.create)
 
 export default routes
