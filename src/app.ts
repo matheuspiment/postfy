@@ -22,7 +22,7 @@ class App {
   }
 
   private database ():void {
-    mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/postfy', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
