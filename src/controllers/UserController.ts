@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import * as Yup from 'yup'
-import omit from 'lodash/omit'
+import pick from 'lodash/pick'
 
 import User from '../schemas/User'
 import CheckUserEmail from '../services/CheckUserEmail'
@@ -25,7 +25,7 @@ class UserController {
       }
 
       const user = await User.create(req.body)
-      return res.json(omit(user.toObject(), ['password']))
+      return res.json(pick(user.toObject(), ['_id', 'name', 'email']))
     } catch (err) {
       return res.status(400).json({ error: 'Registration failed' })
     }
