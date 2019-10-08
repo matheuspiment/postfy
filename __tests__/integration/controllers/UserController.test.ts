@@ -6,12 +6,16 @@ import app from '../../../src/app'
 import factory from '../../factories'
 
 describe('UserController', () => {
-  beforeEach(() => {
-    MongooseConnection.connect()
+  beforeAll(async () => {
+    await MongooseConnection.connect('UserController')
   })
 
-  afterEach(() => {
-    MongooseConnection.disconnect()
+  afterEach(async () => {
+    await MongooseConnection.truncate()
+  })
+
+  afterAll(async () => {
+    await MongooseConnection.disconnect()
   })
 
   describe('register', () => {
@@ -30,7 +34,7 @@ describe('UserController', () => {
 
       const response = await request(app)
         .post('/register')
-        .send(user.toString())
+        .send(user.toObject())
 
       expect(response.status).toBe(400)
     })

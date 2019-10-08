@@ -3,8 +3,8 @@ import '../../src/bootstrap'
 import mongoose from 'mongoose'
 
 class MongooseConnection {
-  async connect (): Promise<void> {
-    mongoose.connect(process.env.MONGO_URI, {
+  async connect (testSuitName: string): Promise<void> {
+    mongoose.connect(`${process.env.MONGO_URI}-${testSuitName}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true
@@ -12,16 +12,18 @@ class MongooseConnection {
       if (error) {
         throw error
       }
-
-      const collections = Object.keys(mongoose.connection.collections)
-      for (const collection of collections) {
-        await mongoose.connection.collections[collection].deleteMany({})
-      }
     })
   }
 
   async disconnect (): Promise<void> {
     await mongoose.connection.close()
+  }
+
+  async truncate (): Promise<void> {
+    const collections = Object.keys(mongoose.connection.collections)
+    for (const collection of collections) {
+      await mongoose.connection.collections[collection].deleteMany({})
+    }
   }
 }
 
