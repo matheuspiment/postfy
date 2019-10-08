@@ -20,5 +20,6 @@ routes.use(authMiddleware)
 // Post
 routes.post('/create/post', PostController.create)
 routes.get('/posts', PostController.list)
+routes.delete('/post/:postId', PostController.delete)
 
 export default routes

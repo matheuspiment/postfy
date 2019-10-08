@@ -32,6 +32,16 @@ class PostController {
       return res.status(400).json({ error: 'Listation failed' })
     }
   }
+
+  async delete (req: AuthRequest, res: Response): Promise<Response> {
+    try {
+      await Post.findByIdAndRemove(req.params.postId)
+
+      return res.status(200).send()
+    } catch (error) {
+      return res.status(400).json({ error: 'Deletation failed' })
+    }
+  }
 }
 
 export default new PostController()
