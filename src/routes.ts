@@ -1,9 +1,9 @@
 import { Router } from 'express'
 
+import UserController from './controllers/UserController'
+
 const routes = Router()
 
-routes.post('/', (req, res) => {
-  res.send('Hello"')
-})
+routes.post('/register', UserController.register)
 
 export default routes
