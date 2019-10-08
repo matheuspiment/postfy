@@ -10,7 +10,9 @@
   "scripts": {
     "commit": "git-cz",
     "dev": "nodemon src/server.ts",
-    "build": "",
+    "prebuild": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".ts\" --source-maps inline",
+    "start": "node dist/server.js",
     "test": "NODE_ENV=test jest",
     "lint": "eslint . --ext .ts",
     "lint:fix": "yarn run lint -- --fix"
@@ -43,6 +45,14 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
     "@sucrase/jest-plugin": "^2.0.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.6",
@@ -72,6 +82,7 @@
     "moxios": "^0.4.0",
     "nodemon": "^1.19.3",
     "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
     "sucrase": "^3.10.1",
     "supertest": "^4.0.2",
     "typescript": "^3.6.3"
