@@ -1,0 +1,6 @@
+{
+  "src/**/*.{ts}": [
+    "yarn run --silent lint:fix",
+    "git add"
+  ]
+}
