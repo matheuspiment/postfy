@@ -12,7 +12,10 @@ before_script:
 script:
   - yarn lint
   - yarn test
+  - yarn build
 after_success:
+  - yarn zip-dist
+  - yarn travis-deploy-once "yarn semantic-release"
   - yarn report-coverage
 branches:
   only:

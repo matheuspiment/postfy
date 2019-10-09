@@ -1,8 +1,8 @@
 {
   "name": "postfy",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "An awesome post API",
-  "main": "index.js",
+  "main": "dist/server.js",
   "repository": "https://github.com/matheuspiment/postfy.git",
   "author": "Matheus Ribeiro Pimenta Nunes <matheuspiment@hotmail.com>",
   "license": "MIT",
@@ -12,11 +12,14 @@
     "dev": "nodemon src/server.ts",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --extensions \".ts\" --source-maps inline",
+    "zip-dist": "zip -r -q dist.zip ./dist/**",
     "start": "node dist/server.js",
     "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
     "lint": "eslint . --ext .ts",
     "lint:fix": "yarn run lint -- --fix",
-    "report-coverage": "cat ./__tests__/coverage/lcov.info | codecov"
+    "report-coverage": "cat ./__tests__/coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "husky": {
     "hooks": {
@@ -85,8 +88,10 @@
     "nodemon": "^1.19.3",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
+    "semantic-release": "^15.13.24",
     "sucrase": "^3.10.1",
     "supertest": "^4.0.2",
+    "travis-deploy-once": "^5.0.11",
     "typescript": "^3.6.3"
   }
 }
