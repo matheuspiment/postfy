@@ -12,6 +12,8 @@ before_script:
 script:
   - yarn lint
   - yarn test
+after_success:
+  - yarn report-coverage
 branches:
   only:
     - master

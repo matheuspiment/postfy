@@ -2,6 +2,8 @@
 
 An awesome post API.
 
+[![travis build](https://img.shields.io/travis/matheuspiment/postfy.svg)](https://travis-ci.org/matheuspiment/postfy)
+[![codecov coverage](https://img.shields.io/codecov/c/github/matheuspiment/postfy.svg)](https://codecov.io/gh/matheuspiment/postfy)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 - [Running the app](#running-the-app)

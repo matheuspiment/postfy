@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An awesome post API",
   "main": "index.js",
-  "repository": "https://github.com/matheuspiment/post-api.git",
+  "repository": "https://github.com/matheuspiment/postfy.git",
   "author": "Matheus Ribeiro Pimenta Nunes <matheuspiment@hotmail.com>",
   "license": "MIT",
   "private": true,
@@ -15,7 +15,8 @@
     "start": "node dist/server.js",
     "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "yarn run lint -- --fix"
+    "lint:fix": "yarn run lint -- --fix",
+    "report-coverage": "cat ./__tests__/coverage/lcov.info | codecov"
   },
   "husky": {
     "hooks": {
@@ -64,6 +65,7 @@
     "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
+    "codecov": "^3.6.1",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.0.2",
     "eslint": "^6.5.1",
