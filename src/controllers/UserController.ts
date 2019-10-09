@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import * as Yup from 'yup'
-import pick from 'lodash/pick'
+import omit from 'lodash/omit'
 
 import User from '../schemas/User'
 import CheckUserEmail from '../services/CheckUserEmail'
@@ -14,7 +14,7 @@ class UserController {
     })
 
     if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation fails' })
+      return res.status(400).json({ error: 'Invalid argument(s)' })
     }
 
     try {
@@ -25,9 +25,9 @@ class UserController {
       }
 
       const user = await User.create(req.body)
-      return res.json(pick(user.toObject(), ['_id', 'name', 'email']))
+      return res.status(201).json({ user: omit(user.toObject(), ['password']) })
     } catch (err) {
-      return res.status(400).json({ error: 'Registration failed' })
+      return res.status(400).json({ error: 'Failed to register user' })
     }
   }
 }
