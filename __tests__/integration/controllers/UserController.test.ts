@@ -26,7 +26,7 @@ describe('UserController', () => {
         .post('/register')
         .send(user)
 
-      expect(response.body).toHaveProperty('_id')
+      expect(response.body).toHaveProperty('user')
     })
 
     it('should not be able to register with duplicated email', async () => {

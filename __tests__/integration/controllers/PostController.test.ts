@@ -144,7 +144,7 @@ describe('PostController', () => {
         .delete(`/post/${createPostBody.post._id}`)
         .set('Authorization', `Bearer ${loginBody.token}`)
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(204)
     })
 
     it('should not delete a post with a non-existent postId', async () => {
@@ -161,8 +161,19 @@ describe('PostController', () => {
           password: user.password
         })
 
+      const post = await factory.attrs('Post')
+
+      const { body: createPostBody } = await request(app)
+        .post('/create/post')
+        .set('Authorization', `Bearer ${loginBody.token}`)
+        .send(post)
+
+      await request(app)
+        .delete(`/post/${createPostBody.post._id}`)
+        .set('Authorization', `Bearer ${loginBody.token}`)
+
       const response = await request(app)
-        .delete(`/post/a${5}`)
+        .delete(`/post/${createPostBody.post._id}`)
         .set('Authorization', `Bearer ${loginBody.token}`)
 
       expect(response.status).toBe(400)
