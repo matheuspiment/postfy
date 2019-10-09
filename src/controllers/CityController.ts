@@ -11,7 +11,7 @@ class CityController {
     const schema = Yup.string().required()
 
     if (!(await schema.isValid(req.query.search))) {
-      return res.status(400).json({ error: 'Validation fails' })
+      return res.status(400).json({ error: 'Invalid argument(s)' })
     }
 
     try {
@@ -35,7 +35,7 @@ class CityController {
 
       return res.status(200).json({ cities: normalizedCities })
     } catch (error) {
-      return res.status(400).json({ error: 'Unable to search cities' })
+      return res.status(400).json({ error: 'Failed to search cities' })
     }
   }
 }
