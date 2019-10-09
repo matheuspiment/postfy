@@ -1,0 +1,22 @@
+language: node_js
+services: mongodb
+cache:
+  directories:
+    - ~/.yarn
+notifications:
+  email: false
+node_js:
+  - "12"
+before_script:
+  - sleep 15
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
+after_success:
+  - yarn zip-dist
+  - yarn travis-deploy-once "yarn semantic-release"
+  - yarn report-coverage
+branches:
+  only:
+    - master

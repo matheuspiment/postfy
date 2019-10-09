@@ -1,0 +1,97 @@
+{
+  "name": "postfy",
+  "version": "0.0.0-development",
+  "description": "An awesome post API",
+  "main": "dist/server.js",
+  "repository": "https://github.com/matheuspiment/postfy.git",
+  "author": "Matheus Ribeiro Pimenta Nunes <matheuspiment@hotmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "commit": "git-cz",
+    "dev": "nodemon src/server.ts",
+    "prebuild": "rimraf dist",
+    "build": "babel src --out-dir dist --extensions \".ts\" --source-maps inline",
+    "zip-dist": "zip -r -q dist.zip ./dist/**",
+    "start": "node dist/server.js",
+    "test": "NODE_ENV=test jest --detectOpenHandles --forceExit",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "yarn run lint -- --fix",
+    "report-coverage": "cat ./__tests__/coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts}": [
+      "yarn run --silent lint:fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.3",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.3",
+    "@babel/core": "^7.6.3",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@sucrase/jest-plugin": "^2.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/jest": "^24.0.18",
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/mongoose": "^5.5.19",
+    "@types/moxios": "^0.4.9",
+    "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "codecov": "^3.6.1",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
+    "husky": "^3.0.8",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "moxios": "^0.4.0",
+    "nodemon": "^1.19.3",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "semantic-release": "^15.13.24",
+    "sucrase": "^3.10.1",
+    "supertest": "^4.0.2",
+    "travis-deploy-once": "^5.0.11",
+    "typescript": "^3.6.3"
+  }
+}
