@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import map from 'lodash/map'
 
-import { GoogleMapPrediction } from '../types'
+import { GoogleMapsPrediction } from '../types'
 import googleMapsConfig from '../config/googleMaps'
 
 class CityController {
@@ -19,7 +19,7 @@ class CityController {
         params: {
           input: req.query.search,
           types: '(cities)',
-          language: 'es_US',
+          language: 'en_US',
           key: process.env.GOOGLE_MAPS_API_KEY
         }
       })
@@ -30,7 +30,7 @@ class CityController {
 
       const normalizedCities = map(
         response.data.predictions,
-        (prediction: GoogleMapPrediction) => prediction.description
+        (prediction: GoogleMapsPrediction) => prediction.description
       )
 
       return res.status(200).json({ cities: normalizedCities })
