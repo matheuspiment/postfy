@@ -1,11 +1,11 @@
 # Index
 
-- [Register an user](##register-an-user)
-- [Login](##login)
-- [Create a post](##create-a-post)
-- [List posts](##list-posts)
-- [Delete a post](##delete-a-post)
-- [Search cities](##search-cities)
+- [Register an user](#register-an-user)
+- [Login](#login)
+- [Create a post](#create-a-post)
+- [List posts](#list-posts)
+- [Delete a post](#delete-a-post)
+- [Search cities](#search-cities)
 
 ## Register an user
 
@@ -100,7 +100,7 @@ This endpoint returns an HTTP 200 whenever the operation succeeds:
 POST /create/post
 ```
 
-> **Notice**: This is an authorized endpoint that need the `Authorization` header with the token provided by the [Login](##login) endpoint.
+> **Notice**: This is an authorized endpoint that need the `Authorization` header with the token provided by the [Login](#login) endpoint.
 
 ### Parameters
 
@@ -141,7 +141,7 @@ This endpoint returns an HTTP 201 whenever the operation succeeds:
 GET /posts
 ```
 
-> **Notice**: This is an authorized endpoint that need the `Authorization` header with the token provided by the [Login](##login) endpoint.
+> **Notice**: This is an authorized endpoint that need the `Authorization` header with the token provided by the [Login](#login) endpoint.
 
 ### Parameters
 
@@ -185,7 +185,7 @@ This endpoint returns an HTTP 200 whenever the operation succeeds:
 DELETE /post/:id
 ```
 
-> **Notice**: This is an authorized endpoint that need the `Authorization` header with the token provided by the [Login](##login) endpoint.
+> **Notice**: This is an authorized endpoint that need the `Authorization` header with the token provided by the [Login](#login) endpoint.
 
 ### Parameters
 
