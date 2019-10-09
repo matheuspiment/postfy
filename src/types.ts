@@ -6,6 +6,6 @@ export interface AuthRequest extends Request {
   userId: string
 }
 
-export interface GoogleMapPrediction {
+export interface GoogleMapsPrediction {
   description: string
 }
