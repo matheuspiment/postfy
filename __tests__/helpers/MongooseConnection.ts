@@ -3,8 +3,8 @@ import '../../src/bootstrap'
 import mongoose from 'mongoose'
 
 class MongooseConnection {
-  async connect (testSuitName: string): Promise<void> {
-    mongoose.connect(`${process.env.MONGO_URI}-${testSuitName}`, {
+  async connect (testSuiteName: string): Promise<void> {
+    mongoose.connect(`${process.env.MONGO_URI}-${testSuiteName}`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true
