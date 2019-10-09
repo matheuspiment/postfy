@@ -34,51 +34,51 @@ describe('AuthController', () => {
 
       expect(response.body).toHaveProperty('token')
     })
-  })
 
-  it('should not authenticate with invalid credentials', async () => {
-    const user = (await factory.create('User', { password: '123456' })).toObject()
+    it('should not authenticate with invalid credentials', async () => {
+      const user = (await factory.create('User', { password: '123456' })).toObject()
 
-    const response = await request(app)
-      .post('/login')
-      .send({
-        email: user.email,
-        password: '123'
-      })
+      const response = await request(app)
+        .post('/login')
+        .send({
+          email: user.email,
+          password: '123'
+        })
 
-    expect(response.status).toBe(401)
-  })
+      expect(response.status).toBe(401)
+    })
 
-  it('should not authenticate with nonexistent user', async () => {
-    const user = await factory.attrs('User', { email: 'matheus@test.com' })
+    it('should not authenticate with nonexistent user', async () => {
+      const user = await factory.attrs('User', { email: 'matheus@test.com' })
 
-    const response = await request(app)
-      .post('/login')
-      .send({
-        email: 'test@matheus.com',
-        password: user.password
-      })
+      const response = await request(app)
+        .post('/login')
+        .send({
+          email: 'test@matheus.com',
+          password: user.password
+        })
 
-    expect(response.status).toBe(401)
-  })
+      expect(response.status).toBe(401)
+    })
 
-  it('should not be able to authenticate with invalid args', async () => {
-    const user = await factory.attrs('User')
+    it('should not be able to authenticate with invalid args', async () => {
+      const user = await factory.attrs('User')
 
-    const responseWithoutEmail = await request(app)
-      .post('/login')
-      .send({
-        password: user.password
-      })
+      const responseWithoutEmail = await request(app)
+        .post('/login')
+        .send({
+          password: user.password
+        })
 
-    expect(responseWithoutEmail.status).toBe(400)
+      expect(responseWithoutEmail.status).toBe(400)
 
-    const responseWithoutPassword = await request(app)
-      .post('/login')
-      .send({
-        email: user.email
-      })
+      const responseWithoutPassword = await request(app)
+        .post('/login')
+        .send({
+          email: user.email
+        })
 
-    expect(responseWithoutPassword.status).toBe(400)
+      expect(responseWithoutPassword.status).toBe(400)
+    })
   })
 })
