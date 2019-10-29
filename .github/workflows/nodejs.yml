@@ -22,8 +22,8 @@ jobs:
         yarn install
     - name: Test
       run: |
-        docker-compose up --exit-code-from mongo
+        docker-compose up -d
         yarn test
-        docker-compose down --exit-code-from mongo
+        docker-compose down
       env:
         CI: true
