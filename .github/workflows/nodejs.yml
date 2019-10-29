@@ -27,3 +27,4 @@ jobs:
         docker-compose down
       env:
         CI: true
+        MONGO_URI: ${{ secrets.MONGO_URI }}
