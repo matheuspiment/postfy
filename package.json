@@ -74,7 +74,7 @@
     "nodemon": "^1.19.3",
     "prettier": "^2.3.0",
     "rimraf": "^3.0.0",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^17.4.4",
     "sucrase": "^3.10.1",
     "supertest": "^4.0.2",
     "travis-deploy-once": "^5.0.11",
