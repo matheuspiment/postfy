@@ -78,6 +78,6 @@
     "sucrase": "^3.10.1",
     "supertest": "^4.0.2",
     "travis-deploy-once": "^5.0.11",
-    "typescript": "^3.6.3"
+    "typescript": "^4.3.4"
   }
 }
